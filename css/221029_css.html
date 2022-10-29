@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <style>
+            /* 1) */
+            /* h1 { color: #cd5c5c;}
+            h2 { color: blueviolet; text-decoration: underline;}
+            h3 { color: antiquewhite; text-shadow: 3px 1px 1px black;}
+            hr { border: 5px; border-style: dotted solid;}
+            p { background-color: black; color: yellow;}
+            div { border: 10px solid pink; border-radius: 10px;} */
+
+            /* 2) */
+            /* #div2 {
+                background-color: aquamarine;
+            }
+            #div2 .apple {
+                color: white;
+            }
+            #div2 > .apple {
+                text-decoration: underline;
+            }
+            .apple + p {
+                background-color: pink;
+            } */
+
+            /* 3) */
+            /* div {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+            div:hover {
+                background-color: black;
+            } */
+
+            /* 4) */
+            .fruits span:first-child {
+                color: red;
+            }
+            .fruits div:first-child {
+                color: aqua;
+            }
+            .fruits h3:last-child {
+                color: chartreuse;
+            }
+            .fruits p:last-child {
+                /* 안됨 */
+                color: chartreuse;
+            }
+            .fruits p:nth-child(4) {
+                color: violet;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 1) -->
+        <!-- <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <hr>
+        <p>p1</p>
+        <p>p2</p>
+        <div>div qkx</div> -->
+
+        <!-- 2) -->
+        <!-- <div>
+            <div id="div2">
+                <p class="apple">1</p>
+                <p class="apple">2</p>
+                <div>
+                    <p class="apple">3</p>
+                </div>
+                <p class="apple">5</p>
+                <p>6</p>
+            </div>
+        </div> -->
+
+        <!-- 3) -->
+        <!-- <div></div> -->
+
+        <!-- 4) -->
+        <div class="fruits">
+            <span>딸기</span>
+            <span>수박</span>
+            <div>오렌지</div>
+            <p>망고</p>
+            <h3>사과</h3>
+        </div>
+        <div class="fruits">
+            
+            <div>오렌지</div>
+            
+        </div>
+    </body>
+</html>
