@@ -1,0 +1,215 @@
+<html>
+<head>
+<style>
+ .month td:first-child {
+    color: red;
+ }
+
+ .month td:last-child {
+    color: blue;
+ }
+
+ .timetable td:first-child {
+    color: green;
+ }
+
+ .timetable .day {
+    color: red;
+ }
+</style>
+</head>
+<body>
+    <table border="1" cellpadding = 10 cellspacing="0">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+    </table>
+
+    <table border="1" cellpadding = 10 cellspacing="0">
+        <tr>
+            <td colspan="2">1</td>
+            
+            <td rowspan="2">3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            
+        </tr>
+    </table>
+
+    <table border="1" cellpadding = 10 cellspacing="0">
+        <tr>
+            <td colspan="2" align="center">1</td>
+            <td>2</td>
+            
+        </tr>
+        <tr>
+            <td>3</td>
+            <td rowspan="2">4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+    </table>
+
+<!-- 실습 - 달력 -->
+    <table class="month" style="text-align: center;" cellpadding="10">
+        <th colspan="7" style="color: green">2019년 6월</th>
+        <tr>
+            <td>日</td>
+            <td>月</td>
+            <td>火</td>
+            <td>水</td>
+            <td>木</td>
+            <td>金</td>
+            <td>土</td>
+        </tr>
+        <tr>
+            <td colspan="6"></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td style="color: red;">6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="color: red; text-align: left;">30</td>
+        </tr>
+    </table>
+
+<!-- 실습 - 시간표 -->
+
+<div style="width: 1000;">
+    <div style="color: blue; text-align: center; margin: auto 0;">시간표</div>  
+    <table class="timetable"  align="center"  border="3" cellspacing="0" style="text-align: center;">
+    
+        <tr class="day">
+            <td></td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+        </tr>
+        <tr>
+            <td>1교시</td>
+            <td><img src="./img/1.png" alt=""></td>
+            <td><img src="./img/2.png" alt=""></td>
+            <td><img src="./img/3.png" alt=""></td>
+            <td><img src="./img/4.png" alt=""></td>
+            <td><img src="./img/5.png" alt=""></td>
+        </tr>
+        <tr>
+            <td>2교시</td>
+            <td><img src="./img/6.png" alt=""></td>
+            <td><img src="./img/7.png" alt=""></td>
+            <td><img src="./img/8.png" alt=""></td>
+            <td><img src="./img/9.png" alt=""></td>
+            <td><img src="./img/10.png" alt=""></td>
+        </tr>
+        <tr>
+            <td>3교시</td>
+            <td><img src="./img/11.png" alt=""></td>
+            <td><img src="./img/12.png" alt=""></td>
+            <td><img src="./img/13.png" alt=""></td>
+            <td><img src="./img/14.png" alt=""></td>
+            <td><img src="./img/15.png" alt=""></td>
+        </tr>
+        <tr>
+            <td>4교시</td>
+            <td><img src="./img/16.png" alt=""></td>
+            <td><img src="./img/17.png" alt=""></td>
+            <td><img src="./img/18.png" alt=""></td>
+            <td><img src="./img/19.png" alt=""></td>
+            <td><img src="./img/20.png" alt=""></td>
+        </tr>
+        <tr>
+            <td>5교시</td>
+            <td colspan="5"><a href="https://youtu.be/5Q5Ghjl3cXI"><img src="./img/21.png" alt=""></a></td>   
+        </tr>
+        <tr>
+            <td>6교시</td>
+            <td><img src="./img/1.png" alt=""></td>
+            <td><img src="./img/2.png" alt=""></td>
+            <td><img src="./img/3.png" alt=""></td>
+            <td><img src="./img/4.png" alt=""></td>
+            <td><img src="./img/5.png" alt=""></td>
+        </tr>
+        <tr>
+            <td>7교시</td>
+            <td><img src="./img/6.png" alt=""></td>
+            <td><img src="./img/7.png" alt=""></td>
+            <td><img src="./img/8.png" alt=""></td>
+            <td><img src="./img/9.png" alt=""></td>
+            <td><img src="./img/10.png" alt=""></td>
+        </tr>
+    </table>
+</div>
+
+<!-- 실습 - 메뉴판 -->
+<table border="3" cellspacing="0" style="text-align: center">
+    <tr>
+        <td>음료</td>
+        <td>가격</td>
+        <td>이미지</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.gong-cha.co.kr/m/brand/menu/product.php?c=001006">밀크티</a></td>
+        <td>5000원</td>
+        <td><img src="./img/밀크티.jpg" alt=""></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.10000recipe.com/recipe/6736183">자몽에이드</a></td>
+        <td>5000원</td>
+        <td><img src="./img/자몽에이드.jpg" alt=""></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.ediya.com/contents/drink.html?chked_val=15,&skeyword=#c">딸기요거트스무디</a></td>
+        <td>5000원</td>
+        <td><img src="./img/딸기요거트스무디.jpg" alt=""></td>
+    </tr>
+</table>
+</body>
+</html>
