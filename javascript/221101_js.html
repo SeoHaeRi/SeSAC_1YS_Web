@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style></style>
+  <script>
+    // // alert('hi');
+    // // console.log('hello')
+    // var a;
+    // console.log(a);
+    // var a = 1;
+    // console.log(a);
+
+    // let b;
+    // console.log(b);
+    // b = 1;
+
+    // console.log(a + b);
+
+    // function init() { console.log("init"); }
+    // function parameter1(a) { console.log(a); }
+    // function parameter2(a, b) { console.log(a + " " + b); }
+    // function parameter3(a, b, c) {
+    //   console.log("a : " + a);
+    //   console.log("b : " + b);
+    //   console.log("c : " + c);
+    // }
+
+    // init(); //기본 형태 실행
+    // parameter1();
+    // parameter1(10);
+    // parameter2(5, 3);
+    // parameter3(1, 2, 3);
+    // var variable = "hi";
+    // parameter3(variable, variable, variable);
+
+    // 실습
+
+    // var no_1, no_2, no_3;
+    // no_1 = 10;
+    // no_2 = 8;
+    // no_3 = 5;
+
+    // function add(no_1, no_2, no_3) {
+    //   alert(no_1 + no_2 + no_3);
+    // }
+
+    // function sub(no_1, no_2) {
+    //   alert(no_1 - no_2);
+    // }
+    // function divide(no_1, no_2) {
+    //   alert(no_1 / no_2);
+    // }
+    // function mul(no_1, no_2) {
+    //   alert(no_1 * no_2);
+    // }
+    // add(no_1, no_2, no_3);
+    // sub(no_1, no_2);
+    // divide(no_1, no_2);
+    // mul(no_1, no_2);
+
+    // if문
+    // var a = prompt("숫자를 입력하세요.");
+    // if (a > 10) {
+    //   console.log("a > 10");
+    // } else if (a > 5) {
+    //   console.log("a > 5");
+    //   if (a > 8) {
+    //     console.log("a > 8");
+    //   } else {
+    //     console.log("a < 8");
+    //   }
+    //   // switch문
+    //   switch (a) {
+    //     case "9":
+    //       console.log("a = 9");
+    //       break;
+    //     case "8":
+    //       console.log("a = 8");
+    //     default:
+    //       break;
+    //   }
+    // } else if (a > 0) {
+    //   console.log("a > 0");
+    // } else {
+    //   console.log("no!");
+    // }
+
+    // // for문
+    // for (var i = 0; i < 10; i = i + 1) {
+    //   console.log("i : " + i);
+    // }
+
+    // // while문
+    // var j = 0;
+    // while (j < 10) {
+    //   console.log(j);
+    //   j++;
+    // }
+
+    // 실습 - 구구단
+
+    // for (var i = 2; i < 10; i++) {
+    //   for (var j = 1; j <= 10; j++) {
+    //     console.log(i + "*" + j + " = " + i * j);
+    //   }
+    // }
+
+    // 실습 - 2 또는 3의 배수 합
+
+    var n = prompt("정수 n을 입력하세요. (0 < n < 100)");
+    var result = 0;
+    if (n > 0 && n < 100) {
+      for (var i = 0; 2 * i <= n; i++) {
+        result += 2 * i;
+      }
+      for (var j = 0; 3 * j <= n; j++) {
+        result += 3 * j;
+      }
+      for (var k = 0; 6 * k <= n; k++) {
+        result -= 6 * k;
+      }
+      console.log(result);
+    }
+    else {
+      alert("다시 입력하세요.")
+    }
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
