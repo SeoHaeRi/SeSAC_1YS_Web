@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>방명록</title>
+  <style>
+    div:nth-child(3) {
+      margin-left: 15px;
+    }
+
+    button {
+      margin: 20px 0;
+    }
+  </style>
+  <script>
+    var num = 0;
+    function addValue() {
+      var writer = document.getElementById("writer").value;
+      var text = document.getElementById("text").value;
+
+      num++;
+      var td1 = document.createElement("td");
+      td1.innerText = num;
+      var td2 = document.createElement("td");
+      td2.innerText = writer;
+      var td3 = document.createElement("td");
+      td3.innerText = text;
+      var td4 = document.createElement("td");
+      td4.innerText = new Date().toLocaleString();
+
+      var tr = document.createElement("tr");
+      var table = document.querySelector(".board");
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      table.appendChild(tr);
+    }
+  </script>
+</head>
+
+<body>
+  <h3>방명록입니다.</h3>
+  <div>
+    <strong>작성자</strong>
+    <input type="text" id="writer">
+  </div>
+  <div>
+    <strong>내용</strong>
+    <input type="text" id="text">
+  </div>
+  <button type="button" onclick="addValue();">작성</button>
+
+  <table class="board" border="3" cellspacing="0">
+    <tr>
+      <th>번호</th>
+      <th>작성자</th>
+      <th>내용</th>
+      <th>작성일</th>
+    </tr>
+  </table>
+
+</body>
+
+</html>
