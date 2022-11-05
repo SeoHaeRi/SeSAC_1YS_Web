@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <style>
+    div {
+      width: 300px;
+      border: 2px solid pink;
+    }
+
+    .img1 {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    function apple() {
+      $(".img1").attr("src", "./img/사과.jpg")
+    }
+    function banana() {
+      $(".img1").attr("src", "./img/바나나.jpg")
+    }
+    function grape() {
+      $(".img1").attr("src", "./img/포도.jpg")
+    }
+    function peach() {
+      $(".img1").attr("src", "./img/복숭아.jpg")
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <img src="./img/과일메인.png" class="img1" alt="과일">
+    <button type="button" onclick="apple()">사과</button>
+    <button type="button" onclick="banana()">바나나</button>
+    <button type="button" onclick="grape()">포도</button>
+    <button type="button" onclick="peach()">복숭아</button>
+  </div>
+
+  <img src="" alt="">
+</body>
+
+</html>
