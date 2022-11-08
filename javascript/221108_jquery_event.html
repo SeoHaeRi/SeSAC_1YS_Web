@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  body태그
+  <div style="width: 100px; height: 100px; background-color: yellow;" id="div1"></div>
+  <input type="text" name="" id="input1">
+  <p id="alert"></p>
+  
+  <script>
+    // 마우스 이벤트
+    $("#div1").click(function(e){
+      console.log("div click");
+      console.log("e: ", e); // 이벤트 객체 e
+    })
+    $("#div1").mouseover(function(){
+      console.log("div mouseover");
+    })
+    $("#div1").hover(function(){
+      console.log("div hover"); // hover는 올렸을 때와 뗐을 때 둘다 감지 
+    }, function(){
+      console.log("div hover2");
+    })
+    $(window).scroll(function(){
+      console.log("window scroll"); //특정 요소에만 줄 수도 있음
+    })
+
+    // 키보드 이벤트
+    $("#input1").keydown(function(e) {
+      $("#alert").text("글자가 입력됨, " + e.currentTarget.value);
+      console.log("input keydown");
+      console.log(e);
+      if (e.keyCode == 13) {
+        console.log("enter key");
+      }
+    })
+    $("input1").keyup(function(e) {
+      console.log("input keyup");
+    })
+
+    // 로딩 이벤트
+    // $(document).ready(
+    //   function () {
+    //     alert("document.ready")
+    //   }
+    // )
+    
+    // $(function(){
+    //   alert("ready")
+    // })
+  </script>
+</body>
+
+</html>
