@@ -3,10 +3,6 @@
 
 <head>
   <meta charset='utf-8' />
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../fullPage.js-master/dist/fullpage.css">
-  <script src="../../fullPage.js-master/dist/fullpage.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   <style>
     h1.ml8 {
@@ -88,27 +84,8 @@
     <span class="circle circle-dark"></span>
     <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
   </h1>
-  <div id="fullpage">
-    <div class="section">Some section</div>
-    <div class="section"><div class="slide"> Slide 1 </div>
-    <div class="slide"> Slide 2 </div>
-    <div class="slide"> Slide 3 </div></div>
-    <div class="section">Some section</div>
-    <div class="section">Some section</div>
-  </div>
+
   <script>
-    // fullpage
-    $(document).ready(function() {
-	$('#fullpage').fullpage({
-		//options here
-		autoScrolling:true,
-		scrollHorizontally: true
-	});
-
-	//methods
-	$.fn.fullpage.setAllowScrolling(false);
-});
-
     // hi animation
     anime.timeline({ loop: true })
       .add({
