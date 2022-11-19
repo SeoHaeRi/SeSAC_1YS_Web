@@ -1,4 +1,3 @@
-
 function login(id, pw, cb) {
     setTimeout(function () {
         console.log("사용자 입장");

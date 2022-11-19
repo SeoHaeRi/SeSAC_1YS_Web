@@ -11,14 +11,25 @@
 // }
 // func1(func2);
 
-console.log("Start");
-function login(id, cb) {
-    setTimeout(() => {
-        console.log('로그인 성공');
-        cb(id);
-    }, 2000);
+// console.log("Start");
+// function login(id, cb) {
+//     setTimeout(() => {
+//         console.log('로그인 성공');
+//         cb(id);
+//     }, 2000);
+// }
+// login('kim', function (id) {
+//     console.log(id + "님 환영합니다.");
+// });
+// console.log("finish");
+
+// 221119 복습
+function func1(callback) {
+    console.log("func1");
+    console.log(callback);
+    callback();
 }
-login('kim', function (id) {
-    console.log(id + "님 환영합니다.");
-});
-console.log("finish");
+function func2(callback) {
+    console.log("func2");
+}
+func1(func2);
