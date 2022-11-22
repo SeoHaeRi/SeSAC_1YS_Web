@@ -4,3 +4,5 @@ new.txt
 write.txt
 write2.txt
 test.txt
+**/node_modules
+**/package-lock.json

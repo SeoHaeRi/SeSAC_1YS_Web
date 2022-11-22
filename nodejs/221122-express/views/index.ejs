@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+</head>
+
+<body>
+    ejs 파일로 만든 html
+    <!-- <img src="/public/img/cat.jpg" alt="고양이"> -->
+    <% for(var i=0; i<data.length; i++) { %>
+    <div>
+        안녕<%=data[i]%>
+    </div>
+    <% } %>
+
+    <div style="color: blue;">
+        <%="안녕"%>
+    </div>
+    <!-- 문자열로 인식 -->
+    <div style="color: red;">
+        <%="<span style='color:blue'>안녕</span>"%> 하세요
+    </div>
+    <!-- 태그로 인식 -->
+    <div style="color: green;">
+        <%-"<span style='color:blue'>안녕</span>"%> 하세요
+    </div>
+
+    <!-- <% if(true) { %>
+
+    <% } else if(true) { %>
+
+    <% } %> -->
+
+    <%-include("test.ejs")%>
+
+</body>
+
+</html>
