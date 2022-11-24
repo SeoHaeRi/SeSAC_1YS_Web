@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function signUp() {
+            var form = document.getElementById("signUp");
+
+            axios({
+                url: "/signUP",
+                method: "get",
+                params: {
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    birth: [form.year.value, form.month.value, form.day.value]
+                }
+            }).then(function (res) {
+                alert(res.data);
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <form id="signUp">
+        이름 <input type="text" name="name">
+        <fieldset>
+            <legend>gender</legend>
+            <input type="radio" name="gender" value="남"> 남자
+            <input type="radio" name="gender" value="여"> 여자
+        </fieldset>
+        <fieldset>
+            <legend>birth</legend>
+            <select name="year" id="">
+                <% for(var i = 2022; i >=1950; i--) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            년
+            <select name="month" id="">
+                <% for(var i = 1; i <=12; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            월
+            <select name="day" id="">
+                <% for(var i = 1; i <=31; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            일
+            </fieldset>
+            <!-- <fieldset>
+                <legend>관심사</legend>
+                <input type="checkbox" name="관심사" value="여행"> 여행
+                <input type="checkbox" name="관심사" value="패션"> 패션
+                <input type="checkbox" name="관심사" value="음식"> 음식
+            </fieldset> -->
+            <button type="button" onclick="signUp()">회원가입</button>
+        </form>
+</body>
+</html>

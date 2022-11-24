@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        function signUp() {
+            var form = document.getElementById("signUp");
+
+            $.ajax({
+                url: "/ajax",
+                type: "GET",
+                data: {
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    birth: [form.year.value, form.month.value, form.day.value]
+                },
+                success: function (data) {
+                    console.log(data);
+                    alert("get - 회원가입 성공!");
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            })
+        }
+
+        function signIn() {
+            var form = document.getElementById("signIn");
+
+            $.ajax({
+                url: "/ajax",
+                type: "POST",
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value
+                },
+                success: function (data) {
+                    console.log(data);
+                    var result = document.getElementById("result");
+                    result.innerText = data.msg;
+                    result.style.color = data.color;
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <!-- get -->
+    <form id="signUp">
+        이름 <input type="text" name="name">
+        <fieldset>
+            <legend>gender</legend>
+            <input type="radio" name="gender" value="남"> 남자
+            <input type="radio" name="gender" value="여"> 여자
+        </fieldset>
+        <fieldset>
+            <legend>birth</legend>
+            <select name="year" id="">
+                <% for(var i = 2022; i >=1950; i--) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            년
+            <select name="month" id="">
+                <% for(var i = 1; i <=12; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            월
+            <select name="day" id="">
+                <% for(var i = 1; i <=31; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>
+            일
+            </fieldset>
+            <button type="button" onclick="signUp()">회원가입</button>
+        </form>
+
+    <!-- post -->
+    <form id="signIn">
+        아이디: <input type="text" name="id" placeholder="ID" required>
+        비밀번호: <input type="password" name="pw" placeholder="PW" required>
+        <button type="button" onclick="signIn()">로그인</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>
