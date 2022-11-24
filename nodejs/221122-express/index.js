@@ -8,9 +8,11 @@ const port = 8080;
 // src="/public/img/cat.jpg"
 // public 자리에 실제 폴더명 작성하는게 코드 알아보기 편함
 app.use("/public", express.static("static"));
-// form
+
+/* form 사용! */
 app.use(express.urlencoded({ extended: true })); // x-www-urlencoded 데이터 해석
 app.use(express.json()); // json: 딕셔너리 형태와 비슷
+
 // 3. 이 주소에 들어갔을 때 보여지는 것 : get(route-도메인 뺀 주소, 함수)
 app.get('/', (req, res) => {
     // res.send('Hello Express!');
@@ -42,7 +44,6 @@ app.get('/img', (req, res) => {
 })
 
 /* form 전송 */
-
 app.get("/form", (req, res) => {
     res.render("form");
 })
@@ -66,6 +67,15 @@ app.get("/getPractice", (req, res) => {
 app.post("/postPractice", (req, res) => {
     console.log(req.body);
     res.send("post 요청 성공!")
+})
+
+/* form validation 실습 */
+app.get("/formValidation", (req, res) => {
+    res.render("form validation")
+})
+app.post("/postValidation", (req, res) => {
+    console.log(req.body);
+    res.send("정규식 사용 요청 성공!")
 })
 
 // 2. 웹 서버 열기 - 마지막줄에 적기 (localhost:8080)
