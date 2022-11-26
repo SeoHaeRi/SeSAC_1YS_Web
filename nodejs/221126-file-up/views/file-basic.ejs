@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file upload</title>
+</head>
+
+<body>
+    <form action="/file-basic-upload" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>개인 정보</legend>
+            아이디 : <input type="text" name="id"><br>
+            비밀 번호 : <input type="password" name="pw"><br>
+            이름 : <input type="text" name="name"><br>
+            나이 : <input type="text" name="age">
+        </fieldset>
+        <input type="file" name="userfile">
+        <button>리셋</button>
+        <button>회원가입</button>
+    </form>
+</body>
+
+</html>

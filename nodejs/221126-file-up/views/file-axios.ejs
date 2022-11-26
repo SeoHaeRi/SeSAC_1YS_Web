@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file upload</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function fileUpload() {
+            const formData = new FormData();
+            const file = document.getElementById("dynamic-file")
+            const id = document.getElementById("id")
+            formData.append('id', id.value)
+            formData.append('userfile', file.files[0])
+
+            axios({
+                method: 'post',
+                url: 'file-axios-upload',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data' // enctype
+                }
+            }).then((res) => {
+                console.log(res.data);
+                console.log(res.data.path);
+                document.querySelector('img').src = res.data.path;
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>개인 정보</legend>
+            아이디 : <input type="text" name="id" id="id"><br>
+            비밀 번호 : <input type="password" name="pw"><br>
+            이름 : <input type="text" name="name"><br>
+            나이 : <input type="text" name="age">
+        </fieldset>
+        <input type="file" name="dynamic-userfile" id="dynamic-file">
+        <button>리셋</button>
+        <button type="button" onclick="fileUpload()">회원가입</button>
+    </form>
+    <br>
+    <img src="">
+</body>
+
+</html>

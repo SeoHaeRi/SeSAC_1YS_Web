@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file upload</title>
+</head>
+
+<body>
+    <h5>upload.single()</h5>
+    <!-- multipart : 파일을 인코딩하지 않겠다 (하면 파일이 깨질 수 있어서) -->
+    <form action="/upload-single" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <!--multer 미들웨어에서 처리 o-->
+        <!-- multer에서 처리하려는 데이터는 파일보다 위에 있기 -->
+        <input type="file" name="userfile">
+        <!-- multer 미들웨어에서 처리X -->
+        <input type="text" name="name2">
+        <button>업로드</button>
+    </form>
+
+    <h5>upload.array()</h5>
+    <form action="/upload-array" method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile" multiple>
+        <button>업로드</button>
+    </form>
+
+    <h5>upload.fields()</h5>
+    <form action="/upload-fields" method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile1">
+        <input type="file" name="userfile2">
+        <input type="file" name="userfile3">
+        <button>업로드</button>
+    </form>
+</body>
+
+</html>
