@@ -8,7 +8,6 @@ exports.signup = (req, res) => {
     // req.body 데이터 mysql 등록
     // res.send 회원가입 성공 메시지
     User.signup_user(req.body, function () {
-        console.log(result);
         res.send(true);
     })
 }
