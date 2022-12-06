@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigin In</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function signin() {
+            let form = document.getElementById("form_signin");
+            axios({
+                method: 'post',
+                url: '/user/signin',
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+            }).then((res) => {
+                console.log(res.data);
+                // 값이 있어서 if문 실행
+                if (res.data) {
+                    // alert("성공");
+                    // form action 동작
+                    form.submit();
+                }
+                else alert("로그인 실패. 아이디 또는 비밀번호가 잘못되었습니다.")
+            })
+        }
+    </script>
+    <style>
+        #field_signin {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form_signin" method="post" action="/user/profile">
+        <fieldset id="field_signin">
+            <h3>Welcome</h3>
+            ID :
+            <input type="text" name="id">
+            Password :
+            <input type="password" name="pw">
+            <button type="button" onclick="signin()">Sign In</button>
+            <button type="button"><a href="signup">Sign Up</a></button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

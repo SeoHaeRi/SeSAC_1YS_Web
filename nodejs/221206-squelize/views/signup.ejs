@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function signUp() {
+            let form = document.getElementById("form_signup");
+            axios({
+                method: 'post',
+                url: '/user/signup',
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+            }).then((res) => {
+                form.id.value = "";
+                form.pw.value = "";
+                form.name.value = "";
+                alert('회원가입 성공!')
+            })
+        }
+    </script>
+    <style>
+        #field_signup {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form_signup">
+        <fieldset id="field_signup">
+            <h3>Welcome</h3>
+            ID :
+            <input type="text" name="id">
+            Password :
+            <input type="password" name="pw">
+            Name :
+            <input type="text" name="name">
+            <button type="button" onclick="signUp()">Sign Up</button>
+            <button type="button"><a href="signin">Sign In</a></button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

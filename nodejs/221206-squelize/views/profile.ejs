@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function edit() {
+            var form = document.getElementById("form_profile");
+            axios({
+                method: 'patch',
+                url: '/user/profile/edit',
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+            }).then((res) => {
+                if (res.data) {
+                    alert("회원정보 수정 성공");
+                } else {
+                    alert("알 수 없는 문제가 발생했습니다.");
+                }
+            })
+        }
+
+        function delete_user() {
+            let form = document.getElementById("form_profile");
+            axios({
+                method: 'delete',
+                url: '/user/profile/delete',
+                data: {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+            }).then((res) => {
+                if (res.data) {
+                    alert("회원 탈퇴 성공");
+                    document.location.href = "/user/signup";
+                } else {
+                    alert("알 수 없는 문제가 발생했습니다.");
+                }
+            })
+        }
+    </script>
+    <style>
+        #field_profile {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form_profile">
+        <fieldset id="field_profile">
+            <h3>Welcome</h3>
+            ID :
+            <input type="text" name="id" value="<%=data.id%>" readonly>
+            Password :
+            <input type="password" name="pw" value="<%=data.pw%>">
+            Name :
+            <input type="text" name="name" value="<%=data.name%>">
+            <div>
+                <button type="button" onclick="edit()">Edit</button>
+                <button type="button" onclick="delete_user()">Delete</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
