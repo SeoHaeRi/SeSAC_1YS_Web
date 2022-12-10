@@ -25,15 +25,15 @@ app.get("/setSession", (req, res) => {
     req.session.user = "id";
     res.send("세션 생성 성공")
 })
+
 const user = { id: "a", pw: "1" };
 
 app.post("/login", (req, res) => {
-    console.log(req.session)
     if (req.body.id == user.id && req.body.pw == user.pw) {
         req.session.user = req.body.id;
-        res.send("로그인 성공")
+        res.send(true)
     } else {
-        res.send("로그인 실패")
+        res.send(false)
     }
 })
 
