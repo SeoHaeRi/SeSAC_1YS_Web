@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#chat-box {
+  font-family: 'S-CoreDream-3Light';
+  position: relative; 
+  margin: 70px auto;
+  padding: 10px; 
+  height: 800px; 
+  max-width: 400px; 
+  z-index: 3;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #eee;
+  font-size: 17px;
+}
+
+#message-box {
+  width: 100%;
+  margin-top: 5px;
+  position: relative;
+}
+
+.my-chat {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.me {
+  position: relative;
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background: #ff5ca1;
+  color: white;
+}
+
+.other-chat {
+  margin-top: 5px;
+  text-align: left;
+}
+.other {
+  position: relative;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 15px;
+    background: #f3f3f3;
+    color: #444;
+}
+#input-box {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#input-text {
+  font-size: 1em;
+  width: 100%;
+  border: none;
+  background: #f3f3f3;
+  margin: 10px;
+  padding: 5px 15px;
+  color: #444;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.input-btn {
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  color: #444;
+  border-radius: 15px;
+  border: none;
+}
+.send-img {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  #chat-box {
+    box-sizing: border-box;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    height: 100%;
+  }
+}

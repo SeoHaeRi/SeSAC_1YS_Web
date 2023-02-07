@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatting</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="chat-box">
+    <main id="message-box">
+      <div class="my-chat">
+        <div class="me">내가 보낸 채팅</div>
+      </div>
+      <div class="other-chat">
+        <div class="other">남</div>
+      </div>
+      <div class="my-chat">
+        <div class="me">내가 또 보냄</div>
+      </div>
+      <div class="my-chat">
+        <div class="me">내가 또또 보냄</div>
+      </div>
+    </main>
+    <section id="input-box">
+      <input id="input-text" onkeyup="sendMsgEnterKey()" />
+      <button class="input-btn" onclick="sendMsg()"><img class="send-img" src="./pngegg.png"></button>
+    </section>
+  </div>
+
+  <script>
+    const sendMsg = () => {
+      const chat = document.getElementById('input-text').value;
+      console.log(chat);
+
+      
+    }
+
+    const sendMsgEnterKey = () => {
+      if (window.event.keyCode == 13) {
+        const chat = document.getElementById('input-text').value;
+        console.log(chat);
+      }
+    }
+  </script>
+</body>
+</html>
