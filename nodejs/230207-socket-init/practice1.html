@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습42</title>
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <div>
+    <button onclick="sendMsg('hello')">hello</button>
+    <button onclick="sendMsg('study')">study</button>
+    <button onclick="sendMsg('bye')">bye</button>
+  </div>
+
+  <h2 id="seeMsg"></h2>
+
+  <script>
+    let socket = io.connect();
+
+    const sendMsg = (msg) => {
+      socket.emit('sendMsg', 'client ' + msg);
+    }
+    socket.on('serverMsg', (msg) => {
+      document.getElementById('seeMsg').innerText = msg
+    })
+  </script>
+</body>
+</html>
