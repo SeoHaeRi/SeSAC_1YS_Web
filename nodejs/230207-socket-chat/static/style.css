@@ -1,11 +1,4 @@
 @font-face {
-  font-family: 'LeferiPoint-WhiteObliqueA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'S-CoreDream-3Light';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-weight: normal;
@@ -24,6 +17,7 @@
   border-radius: 15px;
   box-shadow: 0 0 30px #eee;
   font-size: 17px;
+  overflow-y: auto;
 }
 
 #message-box {
@@ -52,11 +46,11 @@
 }
 .other {
   position: relative;
-    display: inline-block;
-    padding: 5px 20px;
-    border-radius: 15px;
-    background: #f3f3f3;
-    color: #444;
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background: #f3f3f3;
+  color: #444;
 }
 #input-box {
   width: 100%;
@@ -90,13 +84,18 @@
 .send-img {
   width: 100%;
 }
-@media screen and (max-width: 768px) {
+
+.notice {
+  margin-top: 5px;
+  text-align: center;
+}
+/* @media screen and (max-width: 768px) {
   #chat-box {
     box-sizing: border-box;
     margin: 0;
     max-width: 100%;
     width: 100%;
-    border-radius: 0;
     height: 100%;
+    border-radius: 0;
   }
-}
+} */

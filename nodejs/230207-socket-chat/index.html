@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatting</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/style.css">
   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
-    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
   <div id="chat-box">
     <main id="message-box">
@@ -26,25 +29,88 @@
       </div>
     </main>
     <section id="input-box">
-      <input id="input-text" onkeyup="sendMsgEnterKey()" />
-      <button class="input-btn" onclick="sendMsg()"><img class="send-img" src="./pngegg.png"></button>
+      <select id="members">
+        <option value="전체">전체</option>
+      </select>
+      <input id="input-text" onkeyup="sendMsgEnterKey()" autofocus />
+      <button class="input-btn" onclick="sendMsg()"><img class="send-img" src="static/pngegg.png"></button>
     </section>
   </div>
 
   <script>
-    const sendMsg = () => {
-      const chat = document.getElementById('input-text').value;
-      console.log(chat);
+    const username = prompt('닉네임을 입력해주세요 =)');
+    const socket = io.connect();
+    const container = document.getElementById('message-box');
+    const input = document.getElementById('input-text');
 
-      
+    socket.on('connect', () => {
+      console.log('server connected');
+      socket.emit('username', username);
+    })
+
+    let my_id = '';
+    socket.on('info', (socketID) => {
+      my_id = my_ID;
+    })
+
+    socket.on('notice', (msg) => {
+      const div = document.createElement('div');
+      div.classList.add('notice');
+      div.textContent = msg;
+      container.appendChild(div);
+    })
+
+    socket.on('newMsg', (json) => {
+      // msg : 메시지, from : 보낸 사람의 소켓 아이디, username : 보낸 사람의 닉네임
+      // json = {msg : ~~, from : ~~, username : ~~}
+
+      const outer_div = document.createElement('div');
+      const div = document.createElement('div');
+      div.textContent = json.username + " : " + json.msg;
+
+      if (my_id == json.from) {
+        outer_div.classList.add('my-chat');
+        div.classList.add('me');
+      } else {
+        outer_div.classList.add('other-chat');
+        div.classList.add('other');
+      }
+      outer_div.appendChild(div);
+      container.appendChild(outer_div);
+      input.value = null;
+    })
+
+    socket.on('list', (list) => {
+      console.log(list);
+      const member_list = document.getElementById('members');
+      while (member_list.firstChild) member_list.removeChild(member_list.lastChild);
+      const option = document.createElement('option');
+      option.text = '전체';
+      option.value = '전체';
+      member_list.appendChild(option)
+      for (let [key, value] of Object.entries(list)) {
+        const option = document.createElement('option')
+        option.text = value;
+        option.value = value;
+        member_list.appendChild(option)
+      }
+    })
+
+    const sendMsg = () => {
+      const chat = input.value;
+      const to = document.getElementById('members')
+      if (chat.length) {
+        socket.emit('send', { msg: chat })
+      }
     }
 
     const sendMsgEnterKey = () => {
-      if (window.event.keyCode == 13) {
-        const chat = document.getElementById('input-text').value;
-        console.log(chat);
+      const chat = input.value;
+      if (window.event.keyCode == 13 && chat.length) {
+        socket.emit('send', { msg: chat })
       }
     }
   </script>
 </body>
+
 </html>
