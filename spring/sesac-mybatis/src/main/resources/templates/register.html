@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Title</title>
+    <script>
+        function register() {
+            var form = document.getElementById('form_register');
+            var data = {
+                id: form.id.value,
+                name: form.name.value,
+                password: form.password.value
+            }
+            axios.post(`/person/register`, data)
+            .then((res) => {
+                alert('회원가입 완료!');
+                document.location.href = "/person/login";
+            });
+        }
+    </script>
+</head>
+<body>
+<form style="margin-right: 20px;" id="form_register">
+    <h3>회원가입</h3>
+    아이디 : <input type="text" name="id">
+    <br>
+    비밀번호 : <input type="password" name="password">
+    <br>
+    이름 : <input type="text" name="name">
+    <br>
+    <button type="button" onclick="register();">회원가입</button>
+</form>
+</body>
+</html>
